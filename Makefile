@@ -5,3 +5,6 @@ api:
  	       --java_out=build/java/ \
 	       --grpc-java_out=build/java/ \
 	       specification/proto/servicecontract.proto
+
+clean:
+	rm -rf build/
