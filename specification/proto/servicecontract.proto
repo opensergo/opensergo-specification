@@ -1,0 +1,413 @@
+syntax = "proto3";
+
+package opensergo.api;
+
+option go_package = "github.com/opensergo/opensergo-go/v1alpha/api/proto/kratos/api;metadata";
+option java_multiple_files = true;
+option java_package = "com.alibaba.opensergo.api";
+option objc_class_prefix = "OpenSergoAPI";
+
+
+// Metadata is api defintion metadata service.
+service Metadata {
+  // ListServices list the full name of all services.
+  rpc ReportMetadata (ReportMetadataRequest) returns (ReportMetadataReply);
+}
+
+
+message ReportMetadataRequest {
+  ServiceContractProto serviceContract = 1;
+}
+
+message ReportMetadataReply {
+}
+
+message ServiceContractProto {
+  repeated DescriptorProto types = 4;
+  repeated ServiceDescriptorProto services = 6;
+}
+
+// Describes a service.
+message ServiceDescriptorProto {
+  optional string name = 1;
+  repeated MethodDescriptorProto method = 2;
+
+  optional ServiceOptions options = 3;
+  // 注释/注解
+  optional string description = 4;
+}
+
+// Describes a method of a service.
+message MethodDescriptorProto {
+  optional string name = 1;
+
+  // Input and output type names.  These are resolved in the same way as
+  // FieldDescriptorProto.type_name, but must refer to a message type.
+  optional string input_type = 2;
+  optional string output_type = 3;
+
+  optional MethodOptions options = 4;
+
+  // Identifies if client streams multiple client messages
+  optional bool client_streaming = 5 ;// [default = false];
+  // Identifies if server streams multiple server messages
+  optional bool server_streaming = 6 ;// [default = false];
+  // 注释/注解
+  optional string description = 7;
+}
+
+message ServiceOptions {
+
+  // Note:  Field numbers 1 through 32 are reserved for Google's internal RPC
+  //   framework.  We apologize for hoarding these numbers to ourselves, but
+  //   we were already using them long before we decided to release Protocol
+  //   Buffers.
+
+  // Is this service deprecated?
+  // Depending on the target platform, this can emit Deprecated annotations
+  // for the service, or it will be completely ignored; in the very least,
+  // this is a formalization for deprecating services.
+  optional bool deprecated = 33 ;// [default = false];
+
+  // The parser stores options it doesn't recognize here. See above.
+  repeated UninterpretedOption uninterpreted_option = 999;
+
+  // Clients can define custom options in extensions of this message. See above.
+  // extensions 1000 to max;
+}
+
+
+message MethodOptions {
+
+  // Note:  Field numbers 1 through 32 are reserved for Google's internal RPC
+  //   framework.  We apologize for hoarding these numbers to ourselves, but
+  //   we were already using them long before we decided to release Protocol
+  //   Buffers.
+
+  // Is this method deprecated?
+  // Depending on the target platform, this can emit Deprecated annotations
+  // for the method, or it will be completely ignored; in the very least,
+  // this is a formalization for deprecating methods.
+  optional bool deprecated = 33 ;// [default = false];
+
+  // Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
+  // or neither? HTTP based RPC implementation may choose GET verb for safe
+  // methods, and PUT verb for idempotent methods instead of the default POST.
+  enum IdempotencyLevel {
+    IDEMPOTENCY_UNKNOWN = 0;
+    NO_SIDE_EFFECTS = 1;  // implies idempotent
+    IDEMPOTENT = 2;       // idempotent, but may have side effects
+  }
+  optional IdempotencyLevel idempotency_level = 34;
+      // [default = IDEMPOTENCY_UNKNOWN];
+
+  // The parser stores options it doesn't recognize here. See above.
+  repeated UninterpretedOption uninterpreted_option = 999;
+
+  // Clients can define custom options in extensions of this message. See above.
+  //extensions 1000 to max;
+}
+
+
+// A message representing a option the parser does not recognize. This only
+// appears in options protos created by the compiler::Parser class.
+// DescriptorPool resolves these when building Descriptor objects. Therefore,
+// options protos in descriptor objects (e.g. returned by Descriptor::options(),
+// or produced by Descriptor::CopyTo()) will never have UninterpretedOptions
+// in them.
+message UninterpretedOption {
+  // The name of the uninterpreted option.  Each string represents a segment in
+  // a dot-separated name.  is_extension is true iff a segment represents an
+  // extension (denoted with parentheses in options specs in .proto files).
+  // E.g.,{ ["foo", false], ["bar.baz", true], ["qux", false] } represents
+  // "foo.(bar.baz).qux".
+  message NamePart {
+    string name_part = 1;
+    bool is_extension = 2;
+  }
+  repeated NamePart name = 2;
+
+  // The value of the uninterpreted option, in whatever type the tokenizer
+  // identified it as during parsing. Exactly one of these should be set.
+  optional string identifier_value = 3;
+  optional uint64 positive_int_value = 4;
+  optional int64 negative_int_value = 5;
+  optional double double_value = 6;
+  optional bytes string_value = 7;
+  optional string aggregate_value = 8;
+}
+
+
+// Describes a oneof.
+message OneofDescriptorProto {
+  optional string name = 1;
+}
+
+// Describes a message type.
+message DescriptorProto {
+  optional string name = 1;
+
+  repeated FieldDescriptorProto field = 2;
+  repeated FieldDescriptorProto extension = 6;
+
+  repeated OneofDescriptorProto oneof_decl = 8;
+
+  optional MessageOptions options = 7;
+
+  // Range of reserved tag numbers. Reserved tag numbers may not be used by
+  // fields or extension ranges in the same message. Reserved ranges may
+  // not overlap.
+  message ReservedRange {
+    optional int32 start = 1;  // Inclusive.
+    optional int32 end = 2;    // Exclusive.
+  }
+  repeated ReservedRange reserved_range = 9;
+  // Reserved field names, which may not be used by fields in the same message.
+  // A given name may only be reserved once.
+  repeated string reserved_name = 10;
+}
+
+
+// Describes an enum type.
+message EnumDescriptorProto {
+  optional string name = 1;
+
+  repeated EnumValueDescriptorProto value = 2;
+
+  optional MessageOptions options = 3;
+
+}
+
+// Describes a value within an enum.
+message EnumValueDescriptorProto {
+    optional string name = 1;
+    optional int32 number = 2;
+  
+    optional EnumValueOptions options = 3;
+  }
+  
+  message EnumValueOptions {
+    // Is this enum value deprecated?
+    // Depending on the target platform, this can emit Deprecated annotations
+    // for the enum value, or it will be completely ignored; in the very least,
+    // this is a formalization for deprecating enum values.
+    optional bool deprecated = 1 ;//[default = false];
+  }
+
+message MessageOptions {
+  // Is this message deprecated?
+  // Depending on the target platform, this can emit Deprecated annotations
+  // for the message, or it will be completely ignored; in the very least,
+  // this is a formalization for deprecating messages.
+  optional bool deprecated = 3 ;// [default = false];
+}
+
+
+// Describes a field within a message.
+message FieldDescriptorProto {
+  enum Type {
+    // 0 is reserved for errors.
+    TYPE_UNIVERSAL = 0;
+    // Order is weird for historical reasons.
+    TYPE_DOUBLE = 1;
+    TYPE_FLOAT = 2;
+    // Not ZigZag encoded.  Negative numbers take 10 bytes.  Use TYPE_SINT64 if
+    // negative values are likely.
+    TYPE_INT64 = 3;
+    TYPE_UINT64 = 4;
+    // Not ZigZag encoded.  Negative numbers take 10 bytes.  Use TYPE_SINT32 if
+    // negative values are likely.
+    TYPE_INT32 = 5;
+    TYPE_FIXED64 = 6;
+    TYPE_FIXED32 = 7;
+    TYPE_BOOL = 8;
+    TYPE_STRING = 9;
+    // Tag-delimited aggregate.
+    // Group type is deprecated and not supported in proto3. However, Proto3
+    // implementations should still be able to parse the group wire format and
+    // treat group fields as unknown fields.
+    TYPE_GROUP = 10;
+    TYPE_MESSAGE = 11;  // Length-delimited aggregate.
+
+    // New in version 2.
+    TYPE_BYTES = 12;
+    TYPE_UINT32 = 13;
+    TYPE_ENUM = 14;
+    TYPE_SFIXED32 = 15;
+    TYPE_SFIXED64 = 16;
+    TYPE_SINT32 = 17;  // Uses ZigZag encoding.
+    TYPE_SINT64 = 18;  // Uses ZigZag encoding.
+  }
+
+  enum Label {
+    // 0 is reserved for errors
+    LABEL_UNIVERSAL = 0;
+    LABEL_OPTIONAL = 1;
+    LABEL_REQUIRED = 2;
+    LABEL_REPEATED = 3;
+  }
+
+  optional string name = 1;
+  optional int32 number = 3;
+  optional Label label = 4;
+
+  // If type_name is set, this need not be set.  If both this and type_name
+  // are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
+  optional Type type = 5;
+
+  // For message and enum types, this is the name of the type.  If the name
+  // starts with a '.', it is fully-qualified.  Otherwise, C++-like scoping
+  // rules are used to find the type (i.e. first the nested types within this
+  // message are searched, then within the parent, on up to the root
+  // namespace).
+  optional string type_name = 6;
+
+  // For extensions, this is the name of the type being extended.  It is
+  // resolved in the same manner as type_name.
+  optional string extendee = 2;
+
+  // For numeric types, contains the original text representation of the value.
+  // For booleans, "true" or "false".
+  // For strings, contains the default text contents (not escaped in any way).
+  // For bytes, contains the C escaped value.  All bytes >= 128 are escaped.
+  optional string default_value = 7;
+
+  // If set, gives the index of a oneof in the containing type's oneof_decl
+  // list.  This field is a member of that oneof.
+  optional int32 oneof_index = 9;
+
+  // JSON name of this field. The value is set by protocol compiler. If the
+  // user has set a "json_name" option on this field, that option's value
+  // will be used. Otherwise, it's deduced from the field's name by converting
+  // it to camelCase.
+  optional string json_name = 10;
+
+  optional FieldOptions options = 8;
+
+  // If true, this is a proto3 "optional". When a proto3 field is optional, it
+  // tracks presence regardless of field type.
+  //
+  // When proto3_optional is true, this field must be belong to a oneof to
+  // signal to old proto3 clients that presence is tracked for this field. This
+  // oneof is known as a "synthetic" oneof, and this field must be its sole
+  // member (each proto3 optional field gets its own synthetic oneof). Synthetic
+  // oneofs exist in the descriptor only, and do not generate any API. Synthetic
+  // oneofs must be ordered after all "real" oneofs.
+  //
+  // For message fields, proto3_optional doesn't create any semantic change,
+  // since non-repeated message fields always track presence. However it still
+  // indicates the semantic detail of whether the user wrote "optional" or not.
+  // This can be useful for round-tripping the .proto file. For consistency we
+  // give message fields a synthetic oneof also, even though it is not required
+  // to track presence. This is especially important because the parser can't
+  // tell if a field is a message or an enum, so it must always create a
+  // synthetic oneof.
+  //
+  // Proto2 optional fields do not set this flag, because they already indicate
+  // optional with `LABEL_OPTIONAL`.
+  optional bool proto3_optional = 17;
+}
+
+message FieldOptions {
+  // The ctype option instructs the C++ code generator to use a different
+  // representation of the field than it normally would.  See the specific
+  // options below.  This option is not yet implemented in the open source
+  // release -- sorry, we'll try to include it in a future version!
+  optional CType ctype = 1 ;// [default = STRING];
+  enum CType {
+    // Default mode.
+    STRING = 0;
+
+    CORD = 1;
+
+    STRING_PIECE = 2;
+  }
+  // The packed option can be enabled for repeated primitive fields to enable
+  // a more efficient representation on the wire. Rather than repeatedly
+  // writing the tag and type for each element, the entire array is encoded as
+  // a single length-delimited blob. In proto3, only explicit setting it to
+  // false will avoid using packed encoding.
+  optional bool packed = 2;
+
+  // The jstype option determines the JavaScript type used for values of the
+  // field.  The option is permitted only for 64 bit integral and fixed types
+  // (int64, uint64, sint64, fixed64, sfixed64).  A field with jstype JS_STRING
+  // is represented as JavaScript string, which avoids loss of precision that
+  // can happen when a large value is converted to a floating point JavaScript.
+  // Specifying JS_NUMBER for the jstype causes the generated JavaScript code to
+  // use the JavaScript "number" type.  The behavior of the default option
+  // JS_NORMAL is implementation dependent.
+  //
+  // This option is an enum to permit additional types to be added, e.g.
+  // goog.math.Integer.
+  optional JSType jstype = 6 ;// [default = JS_NORMAL];
+  enum JSType {
+    // Use the default type.
+    JS_NORMAL = 0;
+
+    // Use JavaScript strings.
+    JS_STRING = 1;
+
+    // Use JavaScript numbers.
+    JS_NUMBER = 2;
+  }
+
+  // Should this field be parsed lazily?  Lazy applies only to message-type
+  // fields.  It means that when the outer message is initially parsed, the
+  // inner message's contents will not be parsed but instead stored in encoded
+  // form.  The inner message will actually be parsed when it is first accessed.
+  //
+  // This is only a hint.  Implementations are free to choose whether to use
+  // eager or lazy parsing regardless of the value of this option.  However,
+  // setting this option true suggests that the protocol author believes that
+  // using lazy parsing on this field is worth the additional bookkeeping
+  // overhead typically needed to implement it.
+  //
+  // This option does not affect the public interface of any generated code;
+  // all method signatures remain the same.  Furthermore, thread-safety of the
+  // interface is not affected by this option; const methods remain safe to
+  // call from multiple threads concurrently, while non-const methods continue
+  // to require exclusive access.
+  //
+  //
+  // Note that implementations may choose not to check required fields within
+  // a lazy sub-message.  That is, calling IsInitialized() on the outer message
+  // may return true even if the inner message has missing required fields.
+  // This is necessary because otherwise the inner message would have to be
+  // parsed in order to perform the check, defeating the purpose of lazy
+  // parsing.  An implementation which chooses not to check required fields
+  // must be consistent about it.  That is, for any particular sub-message, the
+  // implementation must either *always* check its required fields, or *never*
+  // check its required fields, regardless of whether or not the message has
+  // been parsed.
+  //
+  // As of 2021, lazy does no correctness checks on the byte stream during
+  // parsing.  This may lead to crashes if and when an invalid byte stream is
+  // finally parsed upon access.
+  //
+  // TODO(b/211906113):  Enable validation on lazy fields.
+  optional bool lazy = 5 ;// [default = false];
+
+  // unverified_lazy does no correctness checks on the byte stream. This should
+  // only be used where lazy with verification is prohibitive for performance
+  // reasons.
+  optional bool unverified_lazy = 15 ;// [default = false];
+
+  // Is this field deprecated?
+  // Depending on the target platform, this can emit Deprecated annotations
+  // for accessors, or it will be completely ignored; in the very least, this
+  // is a formalization for deprecating fields.
+  optional bool deprecated = 3 ;// [default = false];
+
+  // For Google-internal migration only. Do not use.
+  optional bool weak = 10 ;// [default = false];
+
+
+  // The parser stores options it doesn't recognize here. See above.
+  repeated UninterpretedOption uninterpreted_option = 999;
+
+  // Clients can define custom options in extensions of this message. See above.
+  // extensions 1000 to max;
+
+  reserved 4;  // removed jtype
+}
