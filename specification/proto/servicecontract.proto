@@ -2,14 +2,14 @@ syntax = "proto3";
 
 package opensergo.api;
 
-option go_package = "github.com/opensergo/opensergo-go/v1alpha/api/proto/kratos/api;metadata";
+option go_package = "github.com/opensergo/opensergo-go/pkg/api;metadata";
 option java_multiple_files = true;
 option java_package = "com.alibaba.opensergo.api";
 option objc_class_prefix = "OpenSergoAPI";
 
 
 // Metadata is api defintion metadata service.
-service Metadata {
+service MetadataService {
   // ListServices list the full name of all services.
   rpc ReportMetadata (ReportMetadataRequest) returns (ReportMetadataReply);
 }
@@ -17,6 +17,8 @@ service Metadata {
 
 message ReportMetadataRequest {
   ServiceContractProto serviceContract = 1;
+
+  string name =2;
 }
 
 message ReportMetadataReply {
@@ -52,8 +54,12 @@ message MethodDescriptorProto {
   optional bool client_streaming = 5 ;// [default = false];
   // Identifies if server streams multiple server messages
   optional bool server_streaming = 6 ;// [default = false];
+
   // 注释/注解
   optional string description = 7;
+
+  repeated string httpPath = 8;
+  repeated string httpMethod = 9;
 }
 
 message ServiceOptions {
@@ -99,7 +105,7 @@ message MethodOptions {
     IDEMPOTENT = 2;       // idempotent, but may have side effects
   }
   optional IdempotencyLevel idempotency_level = 34;
-      // [default = IDEMPOTENCY_UNKNOWN];
+  // [default = IDEMPOTENCY_UNKNOWN];
 
   // The parser stores options it doesn't recognize here. See above.
   repeated UninterpretedOption uninterpreted_option = 999;
@@ -180,19 +186,19 @@ message EnumDescriptorProto {
 
 // Describes a value within an enum.
 message EnumValueDescriptorProto {
-    optional string name = 1;
-    optional int32 number = 2;
+  optional string name = 1;
+  optional int32 number = 2;
   
-    optional EnumValueOptions options = 3;
-  }
+  optional EnumValueOptions options = 3;
+}
   
-  message EnumValueOptions {
-    // Is this enum value deprecated?
-    // Depending on the target platform, this can emit Deprecated annotations
-    // for the enum value, or it will be completely ignored; in the very least,
-    // this is a formalization for deprecating enum values.
-    optional bool deprecated = 1 ;//[default = false];
-  }
+message EnumValueOptions {
+  // Is this enum value deprecated?
+  // Depending on the target platform, this can emit Deprecated annotations
+  // for the enum value, or it will be completely ignored; in the very least,
+  // this is a formalization for deprecating enum values.
+  optional bool deprecated = 1 ;//[default = false];
+}
 
 message MessageOptions {
   // Is this message deprecated?
