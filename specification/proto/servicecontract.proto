@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package opensergo.api;
 
-option go_package = "github.com/opensergo/opensergo-go/pkg/api;metadata";
+option go_package = "github.com/opensergo/opensergo-go/pkg/api/proto;metadata";
 option java_multiple_files = true;
-option java_package = "com.alibaba.opensergo.api";
+option java_package = "com.alibaba.opensergo.api.proto";
 option objc_class_prefix = "OpenSergoAPI";
 
 
