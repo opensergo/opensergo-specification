@@ -2,7 +2,7 @@
 
 服务契约结构主要分为两部分：服务元信息和服务信息，其中服务信息又分为服务接口信息和服务参数信息。
 
-## 服务元信息
+具体的服务契约信息以protobuf格式定义： [servicecontract.proto](../proto/servicecontract.proto)
 
 ## 服务信息
 
