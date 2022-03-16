@@ -9,6 +9,7 @@
 
 `OPENSERGO_BOOTSTRAP_CONFIG`
 为 JSON 格式的服务治理配置内容，比如：
+
 ```json
 {
   "endpoint":"opensergo-pilot.opensergo-pilot.svc.cluster.local:50051"
