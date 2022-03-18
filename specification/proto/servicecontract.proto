@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package opensergo.api;
+package opensergo.api.v1;
 
 option go_package = "github.com/opensergo/opensergo-go/pkg/api/proto;metadata";
 option java_multiple_files = true;
-option java_package = "com.alibaba.opensergo.api.proto";
+option java_package = "io.opensergo.api.proto";
 option objc_class_prefix = "OpenSergoAPI";
 
 
@@ -16,7 +16,7 @@ service MetadataService {
 
 
 message ReportMetadataRequest {
-  ServiceContractProto serviceContract = 1;
+  ServiceContractProto service_contract = 1;
 
   string name =2;
 }
@@ -32,7 +32,7 @@ message ServiceContractProto {
 // Describes a service.
 message ServiceDescriptorProto {
   optional string name = 1;
-  repeated MethodDescriptorProto method = 2;
+  repeated MethodDescriptorProto methods = 2;
 
   optional ServiceOptions options = 3;
   // 注释/注解
@@ -58,8 +58,8 @@ message MethodDescriptorProto {
   // 注释/注解
   optional string description = 7;
 
-  repeated string httpPath = 8;
-  repeated string httpMethod = 9;
+  repeated string http_paths = 8;
+  repeated string http_methods = 9;
 }
 
 message ServiceOptions {
