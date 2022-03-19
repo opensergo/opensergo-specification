@@ -8,3 +8,6 @@
 |-----------------|----------------|
 | zone            | 机器所在的可用区 |
 | Opensergo-Label | 机器的业务标签   |
+
+
+相关的key建议参考 https://github.com/rsocket-broker/rsocket-broker-spec/blob/master/RSocketBrokerSpecification.md 
