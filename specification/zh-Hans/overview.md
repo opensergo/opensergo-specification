@@ -4,44 +4,64 @@ OpenSergo 致力于构建一套开放的、语言无关的、贴近业务语义�
 
 让开发者能够以一种统一的规范来管理不同语言、不同协议的服务。
 
-## 整体架构
+## 背景
 
-![](./images/overview.png)
+不同语言、不同协议的服务，对于自己的能力和模型都有不同的抽象。OpenSergo规范会规定各个微服务应用如何将服务信息上报到管控端、如何从管控端拉取、监听服务治理信息。
 
-## 组件说明
+## OpenSergo 协议
 
-* 治理规则定义
+对于服务而言，需要上报服务契约信息和心跳信息。
 
-包含了服务治理中基本概念的定义、治理规则的定义。
+由于需要服务治理，也需要下发、监听服务治理的配置信息。
 
-* [OpenSergo协议](./opensergo-protocol.md)
-
-基于gRPC描述的标准化协议，包含了服务治理中的上报规范、治理规则下发的格式。
-
-* [OpenSergo-pilot](./pilot.md)
-
-负责通过环境变量注入OpenSergo接入信息，接收、转发上报信息、治理规则下发。
-
-* OpenSergo-dashboard
-
-负责接收并存储服务上报信息、展示服务状态、配置服务治理规则。
+OpenSergo 协议规定了如何上报、下发、监听服务治理信息。
 
 ## 接入方式
 
-对于各个框架，*必须*使用环境变量方式接入服务治理。
+对于各个框架，需要知道向何处上报、从何处拉取、监听服务治理配置。
 
-有如下两个环境变量：
+所以，各个框架**必须**使用环境变量方式接入服务治理。
 
-`OPENSERGO_BOOTSTRAP_CONFIG`
-为 JSON 格式的服务治理配置内容，比如：
+规定如下两个环境变量：
 
-```json
-{
-  "endpoint":"opensergo-pilot.opensergo-pilot.svc.cluster.local:50051"
-}
-```
+1. key为`OPENSERGO_BOOTSTRAP_CONFIG`，
+  value为 JSON 格式的服务治理配置内容，比如：
 
-`OPENSERGO_BOOTSTRAP`
-内容为配置文件路径，路径的内容是JSON格式的服务治理配置。
+  ```json
+  {
+    "endpoint":"opensergo-pilot.opensergo-pilot.svc.cluster.local:50051"
+  }
+  ```
+
+2. key为`OPENSERGO_BOOTSTRAP`，value为配置文件路径，路径指向的文件内容是JSON格式的服务治理配置。
 
 对于RPC框架，如果上述两个环境变量任意一个存在，则开启服务治理功能。
+
+## 通信协议
+
+服务信息的上报和配置的下发、监听都基于gRPC协议来实现。
+
+## 服务契约
+
+服务契约封装了每个应用的如下信息：
+
+* 节点元数据
+  * 节点的IP
+  * 节点的端口
+  * 节点所在的可用区
+  * 节点的业务标签
+* 服务信息
+  * 当前应用提供了哪些服务、哪些方法
+  * 当前应用使用了哪些类型，以及类型定义信息
+
+服务契约的上报通过`opensergo.api.v1.MetadataService.ReportMetadata`方法上报实现。
+
+具体的服务契约信息以protobuf格式定义 [servicecontract.proto](../proto/servicecontract.proto)。
+
+## 服务治理配置的下发
+
+TBD
+
+## 附录
+
+[参考部署模式](./reference-depoyment.md)
