@@ -1,5 +1,4 @@
-# OpenSergo 规范
+# [OpenSergo Specification](./specification/en/README.md)
 
-**一套开放的、面向应用的、贴近业务语义的服务治理规范**。
-
-OpenSergo 规范描述了微服务应用的架构，比如服务流量如何路由、如何灰度。
+OpenSergo is an open, language-agnostic cloud-native service governance specification that is close to business semantics.
+In the scenario of heterogeneous microservice system, enterprises can manage services in different languages and protocols with this unified specification. 
