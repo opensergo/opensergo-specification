@@ -12,3 +12,8 @@ OpenSergo是一套开放的、语言无关的、贴近业务语义的云原生�
 [钉钉群](https://www.dingtalk.com/): `34826335`
 
 <img src="image/dingtalk-group.jpg" width="300" />
+
+微信群:
+
+<img src="image/wechat-group.jpg" width="300" />
+

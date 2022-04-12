@@ -12,3 +12,8 @@ In the scenario of heterogeneous microservice system, enterprises can manage ser
 [DingTalk Group](https://page.dingtalk.com/wow/dingtalk/act/en-home): `34826335`
 
 <img src="image/dingtalk-group.jpg" width="300" />
+
+WeChat Group:
+
+<img src="image/wechat-group.jpg" width="300" />
+
