@@ -13,7 +13,6 @@ OpenSergo是一套开放的、语言无关的、贴近业务语义的云原生�
 
 <img src="image/dingtalk-group.jpg" width="300" />
 
-微信群:
+微信群（添加微信账号并回复OpenSergo，会你拉进群）：
 
 <img src="image/wechat-group.jpg" width="300" />
-

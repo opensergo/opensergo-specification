@@ -13,7 +13,6 @@ In the scenario of heterogeneous microservice system, enterprises can manage ser
 
 <img src="image/dingtalk-group.jpg" width="300" />
 
-WeChat Group:
+WeChat Group (Broker wechat account to add you into the user group.):
 
 <img src="image/wechat-group.jpg" width="300" />
-
