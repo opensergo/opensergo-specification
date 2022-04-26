@@ -68,7 +68,7 @@ Service contract information is defined in 'protobuf' format [service_contract.p
 | -------- | -------- | -------- |  ---- | ---- |
 | 1     |   app_name   |  string    |  required | name of application |
 | 2     |   node   |   Node   |  required | infomation of the node |
-| 3     |   service_metadata   |   ServiceMetadata   |  required | service metadata of application |
+| 3     |   service_metadata   |   ServiceMetadata array   |  required | service metadata of application |
 
 #### ReportMetadataReply
 
