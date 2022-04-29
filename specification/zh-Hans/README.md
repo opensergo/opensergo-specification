@@ -65,7 +65,7 @@ OpenSergo 协议主要包含以下几个部分：
 | -------- | -------- | -------- |  ---- | ---- |
 | 1     |   app_name   |  string    |  必选 | 唯一应用名字 |
 | 2     |   node   |   Node   |  必选 | 该节点的信息 |
-| 3     |   service_contract   |   ServiceContract   |  必选 | 应用的服务契约信息 |
+| 3     |   service_metadata   |   ServiceMetadata数组   |  必选 | 服务元信息 |
 
 #### 服务元数据响应/ReportMetadataReply
 
