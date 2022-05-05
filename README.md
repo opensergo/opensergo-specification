@@ -4,15 +4,33 @@
 
 [中文](./README.zh-Hans.md)
 
+## Overview
+
 OpenSergo is an open, language-agnostic cloud-native service governance specification that is close to business semantics.
-In the scenario of heterogeneous microservice system, enterprises can manage services in different languages and protocols with this unified specification. 
+In the scenario of heterogeneous microservices system, enterprises can manage services in different languages and protocols with this unified specification. 
+
+## Projects
+
+* [opensergo-specification](https://github.com/opensergo/opensergo-specification): defines the OpenSergo specification
+* [opensergo-proto](https://github.com/opensergo/opensergo-proto): the OpenSergo protocol that defines the conmunication between the client and dashboard
+* [opensergo-dashboard](https://github.com/opensergo/opensergo-dashboard): the unified dashboard to managing the heterogeneous microservices.
+* [opensergo-java](https://github.com/opensergo/opensergo-java): the java sdk that implement the OpenSergo specification
+* [opensergo-go](https://github.com/opensergo/opensergo-java): the go sdk that implement the OpenSergo specification
 
 ## Community
 
-[DingTalk Group](https://page.dingtalk.com/wow/dingtalk/act/en-home): `34826335`
+### Bi-weekly meeting
 
-<img src="image/dingtalk-group.jpg" width="300" />
+* APAC Friendly Community meeting: Bi-weekly APAC (Starting Apr 27th, 2022), Wednesday 19:30-20:30 GMT+8
+* Meeting minutes: [OpenSergo Bi-weekly Meeting Minutes](https://www.yuque.com/opensergo/zz79h5/uror1n)
+* Meeting recordings: OpenSergo bilibili Channel
 
-WeChat Group (Broker wechat account to add you into the user group.):
+### Contact
 
-<img src="image/wechat-group.jpg" width="300" />
+* [DingTalk Group](https://page.dingtalk.com/wow/dingtalk/act/en-home): `34826335`
+
+  <img src="image/dingtalk-group.jpg" width="300" />
+
+* WeChat Group (Broker wechat account to add you into the user group):
+
+  <img src="image/wechat-group.jpg" width="300" />
