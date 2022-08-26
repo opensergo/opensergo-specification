@@ -41,6 +41,8 @@ metadata:
   labels:
     app: my-app
 spec:
+  selector:
+    app: my-app
   targets:
     - targetResourceName: '/foo'
   strategies: 
