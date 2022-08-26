@@ -183,8 +183,10 @@ metadata:
   name: my-rule
   namespace: prod
   labels:
-    app: my-app # 规则配置生效的应用名
+    app: my-app 
 spec:
+  selector:
+    app: my-app # 规则配置生效的应用名
   targets:
     - targetResourceName: '/foo'
   strategies: 
