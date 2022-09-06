@@ -15,7 +15,7 @@
 - 数据库端点 #24
 当声明一个虚拟数据库的时候，需要指定某种治理方式并绑定多个数据库端点后方可生效。组成形式如下：
 
-![image](./image/database-overview.png)
+![image](./images/database-overview.png)
 
 ## 虚拟数据库 VirtualDatabase
 
