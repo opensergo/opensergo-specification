@@ -4,15 +4,19 @@
 * version: v1alpha1
 
 数据库治理，指的是对微服务系统中所有涉及数据库的治理内容的总称。作为微服务中最重要的状态终端，所有的业务信息、关键数据都需要健壮稳定的数据库系统。对于数据库治理目前主要集中在
-- 读写分离 #25
-- 分库分表 #26
-- 加密 #28
-- 影子库 #32
-- 数据库发现 #38
-- 分布式事务 #39
+
+- 读写分离 [#25](https://github.com/opensergo/opensergo-specification/issues/25)
+- 分库分表 [#26](https://github.com/opensergo/opensergo-specification/issues/26)
+- 加密 [#28](https://github.com/opensergo/opensergo-specification/issues/28)
+- 影子库 [#32](https://github.com/opensergo/opensergo-specification/issues/32)
+- 数据库发现 [#38](https://github.com/opensergo/opensergo-specification/issues/38)
+- 分布式事务 [#39](https://github.com/opensergo/opensergo-specification/issues/39)
+
 几个方面。而决定应用消费数据库的方式以及实际的数据库存储节点还依赖于以下两个概念：
-- 虚拟数据库 #23
-- 数据库端点 #24
+
+- 虚拟数据库 [#23](https://github.com/opensergo/opensergo-specification/issues/23)
+- 数据库端点 [#24](https://github.com/opensergo/opensergo-specification/issues/24)
+
 当声明一个虚拟数据库的时候，需要指定某种治理方式并绑定多个数据库端点后方可生效。组成形式如下：
 
 ![image](./images/database-overview.png)
