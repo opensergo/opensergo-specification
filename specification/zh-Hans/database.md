@@ -33,7 +33,8 @@
 一个基础的 YAML 示例：
 ```yaml
 apiVersion: database.opensergo.io/v1alpha1
-kind: VirtualDatabasemetadata:
+kind: VirtualDatabase
+metadata:
   name: readwrite_splitting_db
 spec:
   services:
@@ -418,7 +419,7 @@ YAML 示例：
 apiVersion: database.opensergo.io/v1alpha1
 kind: DatabaseDiscovery
 metadata:
-  name: "readwrite_ds"
+  name: readwrite_ds
 spec:
   dataSources:  
     readwrite_ds:         
