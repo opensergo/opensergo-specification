@@ -7,7 +7,8 @@
 ```yaml
 # 虚拟数据库配置
 apiVersion: database.opensergo.io/v1alpha1
-kind: VirtualDatabasemetadata:
+kind: VirtualDatabase
+metadata:
   name: readwrite_splitting_db
 spec:
   services:
@@ -94,7 +95,8 @@ spec:
 ```yaml
 # 虚拟数据库配置
 apiVersion: database.opensergo.io/v1alpha1
-kind: VirtualDatabasemetadata:
+kind: VirtualDatabase
+metadata:
   name: readwrite_splitting_db
 spec:
   services:
@@ -205,7 +207,8 @@ spec:
 ```yaml
 # 虚拟数据库配置
 apiVersion: database.opensergo.io/v1alpha1
-kind: VirtualDatabasemetadata:
+kind: VirtualDatabase
+metadata:
   name: sharding_db
 spec:
   services:
@@ -307,7 +310,8 @@ spec:
 ```yaml
 # 虚拟数据库配置
 apiVersion: database.opensergo.io/v1alpha1
-kind: VirtualDatabasemetadata:
+kind: VirtualDatabase
+metadata:
   name: readwrite_splitting_db
 spec:
   services:
@@ -421,7 +425,8 @@ spec:
 ```yaml
 # 虚拟数据库配置
 apiVersion: database.opensergo.io/v1alpha1
-kind: VirtualDatabasemetadata:
+kind: VirtualDatabase
+metadata:
   name: encrypt_db
 spec:
   services:
@@ -500,7 +505,8 @@ spec:
 ```yaml
 # 虚拟数据库配置
 apiVersion: database.opensergo.io/v1alpha1
-kind: VirtualDatabasemetadata:
+kind: VirtualDatabase
+metadata:
   name: shadow_db
 spec:
   services:
