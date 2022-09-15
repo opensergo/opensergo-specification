@@ -12,7 +12,24 @@ OpenSergo 的最大特点就是**以统一的一套配置/DSL/协议定义服务
 
 ![landscape](./specification/zh-Hans/images/opensergo-landscape-cn.jpg)
 
+## 社区项目说明
+
+* [opensergo-specification](https://github.com/opensergo/opensergo-specification):  定义 OpenSergo 规范
+* [opensergo-proto](https://github.com/opensergo/opensergo-proto): 定义客户端和 control-plane 之间通信的 OpenSergo 协议
+* [opensergo-dashboard](https://github.com/opensergo/opensergo-dashboard): 管理异构微服务的统一仪表板
+* [opensergo-control-plane](https://github.com/opensergo/opensergo-control-plane): 负责承载配置转换和下发
+* [opensergo-java-sdk](https://github.com/opensergo/opensergo-java-sdk): 实现 OpenSergo 规范的 Java SDK
+* [opensergo-go-sdk](https://github.com/opensergo/opensergo-go-sdk): 实现 OpenSergo 规范的 Go SDK
+
 ## 社区
+
+### 社区双周会议
+
+* 社区双周会议: 每两周一次社区会议 (从 2022 年 4 月 27 日开始), 北京时间 周三 19:30-20:30
+* 会议纪要: [OpenSergo Bi-weekly Meeting Minutes](https://github.com/opensergo/opensergo-specification/issues/7)
+* 会议录音：bilibili 平台 的 OpenSergo  频道
+
+### 社区交流平台
 
 [钉钉群](https://www.dingtalk.com/): `34826335`
 
