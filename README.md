@@ -18,6 +18,7 @@ In the scenario of heterogeneous microservices system, enterprises can manage se
 * [opensergo-specification](https://github.com/opensergo/opensergo-specification): defines the OpenSergo specification
 * [opensergo-proto](https://github.com/opensergo/opensergo-proto): the OpenSergo protocol that defines the conmunication between the client and control plane
 * [opensergo-dashboard](https://github.com/opensergo/opensergo-dashboard): the unified dashboard to managing the heterogeneous microservices.
+* [opensergo-control-plane](https://github.com/opensergo/opensergo-control-plane): responsible for carrying configuration conversion and distribution.
 * [opensergo-java-sdk](https://github.com/opensergo/opensergo-java-sdk): the Java SDK that implements the OpenSergo specification
 * [opensergo-go-sdk](https://github.com/opensergo/opensergo-go-sdk): the Go SDK that implements the OpenSergo specification
 
