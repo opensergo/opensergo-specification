@@ -317,11 +317,11 @@ spec:
               exact: 12345       # 参数值
           uri:
             exact: "/index"
-      - target:
-        - workloads: tag-rule
-          name: my-app-gray
-    target:
-      - workloads: tag-rule
+        targets:
+          - workloads: tag-rule
+            name: my-app-gray
+      target:
+        workloads: tag-rule
         name: my-app-base
 ```
 ## HttpRouteRuleContext
