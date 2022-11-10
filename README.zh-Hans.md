@@ -26,11 +26,12 @@ OpenSergo 的最大特点就是**以统一的一套配置/DSL/协议定义服务
 ## 社区
 
 ### 双周会
-* 亚太区友好的社区会议: 亚太区双周会 (开始于 2022 年 4月 27 日), 周三 19:30-20:30(东八区时间)
-* 会议时间: [OpenSergo 双周会](https://github.com/opensergo/opensergo-specification/issues/7)
+* 亚太区友好的社区会议：亚太区双周会 (开始于 2022 年 4月 27 日), 周三 19:30-20:30(东八区时间)
+* 会议时间：[OpenSergo 双周会](https://github.com/opensergo/opensergo-specification/issues/7)
+* 会议记录：OpenSergo 哔哩哔哩频道
 
 ### 联系
-[钉钉群](https://www.dingtalk.com/): `34826335`
+[钉钉群](https://www.dingtalk.com/)：`34826335`
 
 <img src="image/dingtalk-group.jpg" width="300" />
 
