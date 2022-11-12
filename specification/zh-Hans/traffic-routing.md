@@ -143,7 +143,7 @@ spec:
         match:
           headers: 
             X-User-Id:   # 参数名
-              regex: "^(?!(?:\d{1,2}|100)$)[0-9]\d+$"       # 参数值
+              exact: 123       # 参数值
           queryParams:
             name:
               exact: xiaoming
