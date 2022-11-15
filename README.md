@@ -4,7 +4,7 @@
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
-[中文](./README.zh-Hans.md)
+[中文说明](./README.zh-Hans.md)
 
 ## Overview
 
@@ -16,11 +16,11 @@ In the scenario of heterogeneous microservices system, enterprises can manage se
 ## Projects
 
 * [opensergo-specification](https://github.com/opensergo/opensergo-specification): defines the OpenSergo specification
-* [opensergo-proto](https://github.com/opensergo/opensergo-proto): the OpenSergo protocol that defines the conmunication between the client and control plane
-* [opensergo-dashboard](https://github.com/opensergo/opensergo-dashboard): the unified dashboard to managing the heterogeneous microservices.
-* [opensergo-control-plane](https://github.com/opensergo/opensergo-control-plane): responsible for carrying configuration conversion and distribution.
+* [opensergo-control-plane](https://github.com/opensergo/opensergo-control-plane): OpenSergo control plane enables unified management for microservice governance rules with OpenSergo CRD.
+* [opensergo-proto](https://github.com/opensergo/opensergo-proto): the OpenSergo Universal Transport Service protocol that defines the conmunication between the client and control plane.
 * [opensergo-java-sdk](https://github.com/opensergo/opensergo-java-sdk): the Java SDK that implements the OpenSergo specification
 * [opensergo-go-sdk](https://github.com/opensergo/opensergo-go-sdk): the Go SDK that implements the OpenSergo specification
+* [opensergo-dashboard](https://github.com/opensergo/opensergo-dashboard): the unified dashboard to managing the heterogeneous microservices.
 
 ## Community
 
@@ -34,8 +34,14 @@ In the scenario of heterogeneous microservices system, enterprises can manage se
 
 * [DingTalk Group](https://page.dingtalk.com/wow/dingtalk/act/en-home): `34826335`
 
-  <img src="image/dingtalk-group.jpg" width="300" />
+<img src="image/dingtalk-group.jpg" width="300" />
 
-* WeChat Group (Broker wechat account to add you into the user group):
+* WeChat Group
 
-  <img src="image/wechat-group.jpg" width="300" />
+OpenSergo official WeChat account (微信公众号): OpenSergo
+
+<img src="image/qrcode_opensergo-wechat-oac.jpg" width="300" />
+
+Broker wechat account to add you into the user group:
+
+<img src="image/wechat-group.jpg" width="300" />
