@@ -25,12 +25,12 @@ Strategy 定义该规则对应的容错或控制策略。在 v1alpha1 版本中�
 
 流量控制策略 (RateLimitStrategy)，即控制单位时长内的请求量在一定范围内。多适用于激增流量下保护服务承载能力在容量之内，避免过多流量将服务打垮。RateLimitStrategy 包含以下要素：
 
-| 字段名 | 是否必填 | 类型 | 描述 |
-| -------- | -------- | -------- | -------- |
-| metricType     | required     |  string (enum) | 指标类型，取值范围 `RequestAmount`    |
-| limitMode     | required     |  string (enum) | 控制模式，单机 `Local`, 集群总体 `Global`, 集群按实例数转单机 `GlobalToLocal`    |
-| threshold     | required     |  double | 阈值，单位统计时长内最多允许的量    |
-| statDuration     | required     |  string (int+timeUnit) | 统计时长，如 `1s`, `5min`；也可考虑 timeUnit 形式    |
+| 字段名                 | 是否必填 | 类型            | 描述                                                        |
+|---------------------| -------- |---------------|-----------------------------------------------------------|
+| metricType          | required     | string (enum) | 指标类型，取值范围 `RequestAmount`                                 |
+| limitMode           | required     | string (enum) | 控制模式，单机 `Local`, 集群总体 `Global`, 集群按实例数转单机 `GlobalToLocal` |
+| threshold           | required     | double        | 阈值，单位统计时长内最多允许的量                                          |
+| statDurationSeconds | required     | int32         | 统计时长（秒），如 1 代表 1s                                         |
 
 以下示例定义了一个集群流控的策略，集群总体维度每秒不超过 10个请求。示例 CR YAML:
 
@@ -43,7 +43,7 @@ spec:
   metricType: RequestAmount
   limitMode: Global
   threshold: 10
-  statDuration: "1s"
+  statDurationSeconds: 1
 ```
 
 ### 流量平滑
@@ -161,7 +161,7 @@ spec:
   metricType: RequestAmount
   limitMode: Global
   threshold: 10
-  statDuration: "1s"
+  statDurationSeconds: 1
 ---
 apiVersion: fault-tolerance.opensergo.io/v1alpha1
 kind: HttpRequestFallbackAction
