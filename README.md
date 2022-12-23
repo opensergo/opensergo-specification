@@ -4,7 +4,7 @@
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
-[中文说明](./README.zh-Hans.md)
+[中文 README 说明](./README.zh-Hans.md)
 
 ## Overview
 
@@ -13,13 +13,16 @@ In the scenario of heterogeneous microservices system, enterprises can manage se
 
 ![landscape](./specification/en/images/opensergo-landscape-en.jpg)
 
+Refer [OpenSergo Website](https://opensergo.io/) for the official website of OpenSergo. Refer [Chinese website（中文官网）](https://opensergo.io/zh-cn/) for Chinese version of the OpenSergo website.
+
 ## Projects
 
 * [opensergo-specification](https://github.com/opensergo/opensergo-specification): defines the OpenSergo specification
 * [opensergo-control-plane](https://github.com/opensergo/opensergo-control-plane): OpenSergo control plane enables unified management for microservice governance rules with OpenSergo CRD.
+* OpenSergo SDK
+  * [opensergo-java-sdk](https://github.com/opensergo/opensergo-java-sdk): the Java SDK that implements the OpenSergo specification
+  * [opensergo-go-sdk](https://github.com/opensergo/opensergo-go-sdk): the Go SDK that implements the OpenSergo specification
 * [opensergo-proto](https://github.com/opensergo/opensergo-proto): the OpenSergo Universal Transport Service protocol that defines the conmunication between the client and control plane.
-* [opensergo-java-sdk](https://github.com/opensergo/opensergo-java-sdk): the Java SDK that implements the OpenSergo specification
-* [opensergo-go-sdk](https://github.com/opensergo/opensergo-go-sdk): the Go SDK that implements the OpenSergo specification
 * [opensergo-dashboard](https://github.com/opensergo/opensergo-dashboard): the unified dashboard to managing the heterogeneous microservices.
 
 ## Community

@@ -1,9 +1,9 @@
-# 流控降级与容错标准 v1alpha1
+# 流量防护与容错标准 v1alpha1
 
 * domain: fault-tolerance
 * version: v1alpha1
 
-流控降级与容错是服务流量治理中关键的一环，以流量为切入点，通过流控、熔断降级、流量平滑、自适应过载保护等手段来保障服务的稳定性。在 OpenSergo 中，我们期望结合 [Sentinel](https://sentinelguard.io/) 等框架组件的场景实践对流控降级与容错抽出标准 CRD。一个容错治理规则 (`FaultToleranceRule`) 由以下三部分组成：
+流量防护与容错是服务流量治理中关键的一环，以流量为切入点，通过流量控制、流量平滑、熔断降级、自适应过载保护等手段来保障服务的稳定性。在 OpenSergo 中，我们期望结合 [Sentinel](https://sentinelguard.io/) 等框架组件的场景实践对流量防护与容错抽出标准 CRD。一个容错治理规则 (`FaultToleranceRule`) 由以下三部分组成：
 
 * Target: 针对什么样的请求
 * Strategy: 容错或控制策略，如流控、熔断、并发控制、自适应过载保护、离群实例摘除等

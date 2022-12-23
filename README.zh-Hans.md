@@ -14,6 +14,8 @@ OpenSergo 的最大特点就是**以统一的一套配置/DSL/协议定义服务
 
 ![landscape](./specification/zh-Hans/images/opensergo-spec-areas-cn.png)
 
+OpenSergo 官方网站：http://opensergo.io/zh-cn/
+
 ## 项目
 
 * [opensergo-specification](https://github.com/opensergo/opensergo-specification): Spec 以统一的一套配置/DSL 定义微服务治理规则与配置，确保开发者可以用同一套标准对不同框架、不同协议、不同语言的微服务架构进行统一治理管控。

@@ -1,6 +1,6 @@
 # OpenSergo Specification
 
-[中文版本]
+[中文版本](../zh-Hans/README.md)
 
 OpenSergo is an open, language-agnostic, and cloud-native service governance specification that is close to business semantics.
 In the scenario of heterogeneous microservice system, enterprises can manage services in different languages and protocols with this unified specification. 
