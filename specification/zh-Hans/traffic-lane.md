@@ -71,4 +71,4 @@ spec:
     traceIdBaggage: x-opensergo-traffic
 ```
 
-以上说明了如何使用 TrafficLane 这一 CR 给我们应用指定流量进行染色的方法。其中定义了如何对流量进行打标比如我们对 headers 中带有 `X-User-Id` 为 12345、URI 为 `/index` 的 HTTP 流量进行Gray的标记，也可以按照节点的标签进行标记（经过 Gray 的 workload 的流量染色为 Gray），同时定义了名为 `x-opensergo-traffic` 的 traceIdBaggage，会放在 TraceId 的 Baggage 中存放 Gray 的流量标识。
+以上说明了如何使用 `TrafficLane` 这一 CRD 给我们应用指定流量进行染色的方法。其中定义了如何对流量进行打标比如我们对 headers 中带有 `X-User-Id` 为 12345、URI 为 `/index` 的 HTTP 流量进行Gray的标记，也可以按照节点的标签进行标记（经过 Gray 的 workload 的流量染色为 Gray），同时定义了名为 `x-opensergo-traffic` 的 traceIdBaggage，会放在 TraceId 的 Baggage 中存放 Gray 的流量标识。
