@@ -14,7 +14,7 @@
 | -------- | -------- | -------- |  ---- | ---- |
 | 1     |   app_name   |  string    |  必选 | 唯一应用名字 |
 | 2     |   node   |   Node   |  必选 | 该节点的信息 |
-| 3     |   service_metadata   |   ``ServiceMetadata` 数组   |  必选 | 服务元信息 |
+| 3     |   service_metadata   |   `ServiceMetadata` 数组   |  必选 | 服务元信息 |
 
 ## 服务元数据响应/ReportMetadataReply
 
